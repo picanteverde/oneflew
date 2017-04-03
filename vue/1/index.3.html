@@ -1,0 +1,43 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <h1>{{ title }}</h1>
+
+  <ol>
+    <li v-for="t in todos">
+      {{ t.text }}
+    </li>
+  </ol>
+<h1 v-if="done">and that's it!</h1>
+
+<div>add a todo:</div>
+<input v-model="message"><button v-on:click="addTodo">+</button>
+
+</div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    title: 'This is my first vue.js app',
+    done: false,
+    message: '',
+    todos: [
+          { text: 'present vue.js' },
+          { text: 'templates' },
+          { text: 'directives' },
+          { text: 'events' },
+        ],
+  },
+  methods: {
+    addTodo: function () {
+      this.todos.push({ text: this.message });
+      this.message = "";
+
+      if(this.todos.length === 5){
+        this.done = true;
+      }
+    }
+  },
+})
+</script>

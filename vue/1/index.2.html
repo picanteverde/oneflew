@@ -1,0 +1,18 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  {{ message }}
+  <span v-bind:title="tooltip">
+    Hover the mouse
+  </span>
+</div>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    tooltip: 'tooltip text!!!',
+  }
+})
+</script>

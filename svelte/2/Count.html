@@ -1,0 +1,6 @@
+
+<input bind:value='count' />
+{{#if count}}
+<button on:click='set({ count: parseInt(count, 10) + 1 })'>+1</button>
+<p>Count: {{count}}</p>
+{{/if}}

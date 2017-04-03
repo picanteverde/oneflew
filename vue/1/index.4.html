@@ -1,0 +1,52 @@
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <h1>{{ title }}</h1>
+
+  <ol>
+    <todo-item v-for="t in todos" v-bind:todo="t"></todo-item>
+  </ol>
+<h1 v-if="done">and that's it!</h1>
+
+<div>add a todo:</div>
+<input v-model="message" v-on:keyup.enter="addTodo">
+
+</div>
+
+<script>
+
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    title: 'This is my first vue.js app',
+    done: false,
+    message: '',
+    todos: [
+          { text: 'present vue.js' },
+          { text: 'templates' },
+          { text: 'directives' },
+          { text: 'events' },
+        ],
+  },
+  methods: {
+    addTodo: function () {
+      this.todos.push({ text: this.message });
+      this.message = "";
+
+      if(this.todos.length === 5){
+        this.done = true;
+      }
+    }
+  },
+});
+
+app.$watch('todos', function(n, o){
+  console.log('new value' + n);
+  console.log('old value' + o);
+});
+</script>

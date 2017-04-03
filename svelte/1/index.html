@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>My first Svelte app</title>
+</head>
+<body>
+  <main></main>
+  <script src='Msg.js'></script>
+  <script>
+    var app = new Msg({
+      target: document.querySelector( 'main' ),
+      data: {
+        message: 'Hello from Svelte!',
+      }
+    });
+    //app.set({message: 'and now from here' });
+  </script>
+</body>
+</html>

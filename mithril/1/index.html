@@ -1,0 +1,14 @@
+<body>
+    <script src="//unpkg.com/mithril/mithril.js"></script>
+    <script>
+    var root = document.body
+
+    m.render(root, "Hello world");
+    m.render(root, "My first app");
+    m.render(root, m("h1", {class: "title"}, "My first app"));
+    m.render(root, m("main", [
+      m("h1", {class: "title"}, "My first app"),
+      m("button", "A button"),
+    ]));
+    </script>
+</body>

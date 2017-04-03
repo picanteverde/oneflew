@@ -1,0 +1,29 @@
+<p class="timer">
+  The time is <strong>{{hours}}:{{minutes}}:{{seconds}}</strong>
+</p>
+<style>
+.timer{
+  color:red;
+}
+</style>
+
+<script>
+  export default {
+    oncreate () {
+      this.interval = setInterval( () => { this.set({ time: new Date() }); }, 1000 );
+    },
+    ondestroy () {
+      clearInterval( this.interval );
+    },
+    data () {
+      return {
+        time: new Date()
+      };
+    },
+    computed: {
+      hours: time => time.getHours(),
+      minutes: time => time.getMinutes(),
+      seconds: time => time.getSeconds(),
+    },
+  };
+</script>
